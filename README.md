@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://utfs.io/f/bbc51fbf-0c5a-44cd-8beb-60af52b88513-ksuogq.gif" />
+  <img src="https://utfs.io/f/8b5d3f3d-dead-4614-9d46-8e3aca81b014-mvrkqx.gif" alt="Banner JARVIS ChatBOT" />
 </p>
 
 # JARVIS - Assistente Virtual
@@ -69,7 +69,7 @@ Aqui estão alguns dos comandos de voz que o JARVIS já suporta:
 
 --- 
 ### Licença
-> Este projeto está licenciado sob a licença GNU. Veja o arquivo LICENSE para mais detalhes.
+> Este projeto está licenciado sob a licença GNU. Veja o arquivo [LICENSE](https://github.com/AIExxplorer/ChatBot-Jarvis/blob/main/LICENSE) para mais detalhes.
 
 --- 
 > Nota: Este projeto está em desenvolvimento contínuo. Novos comandos e funcionalidades serão adicionados futuramente. Fique atento às atualizações!
