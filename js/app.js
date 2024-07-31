@@ -29,56 +29,61 @@ window.addEventListener('load', () => {
 });
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-const recognition = new SpeechRecognition();
 
-recognition.onresult = (event) => {
-    const currentIndex = event.resultIndex;
-    const transcript = event.results[currentIndex][0].transcript;
-    content.textContent = transcript;
-    takeCommand(transcript.toLowerCase());
-};
+if (!SpeechRecognition) {
+    alert("Seu navegador não suporta a API de reconhecimento de fala. Por favor, use o Google Chrome ou outro navegador compatível.");
+} else {
+    const recognition = new SpeechRecognition();
 
-btn.addEventListener('click', () => {
-    content.textContent = "Escutando...";
-    recognition.start();
-});
+    recognition.onresult = (event) => {
+        const currentIndex = event.resultIndex;
+        const transcript = event.results[currentIndex][0].transcript;
+        content.textContent = transcript;
+        takeCommand(transcript.toLowerCase());
+    };
 
-function takeCommand(message) {
-    if (message.includes('hey') || message.includes('hello')) {
-        speak("Olá senhor, em que posso ajudá-lo?");
-    } else if (message.includes("abra o google")) {
-        window.open("https://google.com", "_blank");
-        speak("Abrindo o Google...");
-    } else if (message.includes("abra o youtube")) {
-        window.open("https://youtube.com", "_blank");
-        speak("Abrindo o Youtube...");
-    } else if (message.includes("abra o facebook")) {
-        window.open("https://facebook.com", "_blank");
-        speak("Abrindo o Facebook...");
-    } else if (message.includes('o que é') || message.includes('quem é') || message.includes('what are')) {
-        window.open(`https://www.google.com/search?q=${message.replace(" ", "+")}`, "_blank");
-        const finalText = "Isto é o que encontrei na internet sobre " + message;
-        speak(finalText);
-    } else if (message.includes('wikipedia')) {
-        window.open(`https://en.wikipedia.org/wiki/${message.replace("wikipedia", "").trim()}`, "_blank");
-        const finalText = "Isto é o que encontrei na Wikipedia sobre " + message;
-        speak(finalText);
-    } else if (message.includes('hora')) {
-        const time = new Date().toLocaleString(undefined, { hour: "numeric", minute: "numeric" });
-        const finalText = "A hora atual é " + time;
-        speak(finalText);
-    } else if (message.includes('data')) {
-        const date = new Date().toLocaleString(undefined, { month: "short", day: "numeric" });
-        const finalText = "A data de hoje é " + date;
-        speak(finalText);
-    } else if (message.includes('calculadora')) {
-        window.open('Calculator:///');
-        const finalText = "Abrindo Calculadora";
-        speak(finalText);
-    } else {
-        window.open(`https://www.google.com/search?q=${message.replace(" ", "+")}`, "_blank");
-        const finalText = "Encontrei algumas informações para " + message + " no Google";
-        speak(finalText);
+    btn.addEventListener('click', () => {
+        content.textContent = "Escutando...";
+        recognition.start();
+    });
+
+    function takeCommand(message) {
+        if (message.includes('hey') || message.includes('hello')) {
+            speak("Olá senhor, em que posso ajudá-lo?");
+        } else if (message.includes("abra o google")) {
+            window.open("https://google.com", "_blank");
+            speak("Abrindo o Google...");
+        } else if (message.includes("abra o youtube")) {
+            window.open("https://youtube.com", "_blank");
+            speak("Abrindo o Youtube...");
+        } else if (message.includes("abra o facebook")) {
+            window.open("https://facebook.com", "_blank");
+            speak("Abrindo o Facebook...");
+        } else if (message.includes('o que é') || message.includes('quem é') || message.includes('what are')) {
+            window.open(`https://www.google.com/search?q=${message.replace(" ", "+")}`, "_blank");
+            const finalText = "Isto é o que encontrei na internet sobre " + message;
+            speak(finalText);
+        } else if (message.includes('wikipedia')) {
+            window.open(`https://en.wikipedia.org/wiki/${message.replace("wikipedia", "").trim()}`, "_blank");
+            const finalText = "Isto é o que encontrei na Wikipedia sobre " + message;
+            speak(finalText);
+        } else if (message.includes('hora')) {
+            const time = new Date().toLocaleString(undefined, { hour: "numeric", minute: "numeric" });
+            const finalText = "A hora atual é " + time;
+            speak(finalText);
+        } else if (message.includes('data')) {
+            const date = new Date().toLocaleString(undefined, { month: "short", day: "numeric" });
+            const finalText = "A data de hoje é " + date;
+            speak(finalText);
+        } else if (message.includes('calculadora')) {
+            window.open('Calculator:///');
+            const finalText = "Abrindo Calculadora";
+            speak(finalText);
+        } else {
+            window.open(`https://www.google.com/search?q=${message.replace(" ", "+")}`, "_blank");
+            const finalText = "Encontrei algumas informações para " + message + " no Google";
+            speak(finalText);
+        }
     }
 }
 
