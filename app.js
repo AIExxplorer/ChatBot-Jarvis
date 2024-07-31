@@ -3,17 +3,15 @@ const content = document.querySelector('.content');
 
 function speak(text) {
     const text_speak = new SpeechSynthesisUtterance(text);
-
     text_speak.rate = 1;
     text_speak.volume = 1;
     text_speak.pitch = 1;
-
     window.speechSynthesis.speak(text_speak);
 }
 
 function wishMe() {
-    var day = new Date();
-    var hour = day.getHours();
+    const day = new Date();
+    const hour = day.getHours();
 
     if (hour >= 0 && hour < 12) {
         speak("Bom Dia Chefe...");
@@ -27,6 +25,7 @@ function wishMe() {
 window.addEventListener('load', () => {
     speak("Iniciando o JARVIS...");
     wishMe();
+    disableRightClick();
 });
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -47,13 +46,13 @@ btn.addEventListener('click', () => {
 function takeCommand(message) {
     if (message.includes('hey') || message.includes('hello')) {
         speak("Olá senhor, em que posso ajudá-lo?");
-    } else if (message.includes("Abra o google")) {
+    } else if (message.includes("abra o google")) {
         window.open("https://google.com", "_blank");
         speak("Abrindo o Google...");
-    } else if (message.includes("Abra o youtube")) {
+    } else if (message.includes("abra o youtube")) {
         window.open("https://youtube.com", "_blank");
         speak("Abrindo o Youtube...");
-    } else if (message.includes("Abra o facebook")) {
+    } else if (message.includes("abra o facebook")) {
         window.open("https://facebook.com", "_blank");
         speak("Abrindo o Facebook...");
     } else if (message.includes('o que é') || message.includes('quem é') || message.includes('what are')) {
@@ -81,4 +80,9 @@ function takeCommand(message) {
         const finalText = "Encontrei algumas informações para " + message + " no Google";
         speak(finalText);
     }
+}
+
+// Função para desabilitar o clique direito do mouse
+function disableRightClick() {
+    document.addEventListener('contextmenu', event => event.preventDefault());
 }
