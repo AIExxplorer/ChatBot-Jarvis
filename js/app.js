@@ -48,7 +48,7 @@ if (!SpeechRecognition) {
     });
 
     function takeCommand(message) {
-        if (message.includes('hey') || message.includes('hello')) {
+        if (message.includes('Oi') || message.includes('Olá')) {
             speak("Olá senhor, em que posso ajudá-lo?");
         } else if (message.includes("abra o google")) {
             window.open("https://google.com", "_blank");

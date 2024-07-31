@@ -79,3 +79,30 @@
     font-size: 15px;
     margin-right: 20px;
 }
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    background: transparent; /* Torna o fundo do rodapé transparente */
+    position: absolute; /* Faz o rodapé ficar fixo na parte inferior */
+    bottom: 0; /* Alinha o rodapé ao fundo da tela */
+    left: 0; /* Alinha o rodapé ao lado esquerdo da tela */
+    right: 0; /* Alinha o rodapé ao lado direito da tela */
+    z-index: 1; /* Certifica-se de que o rodapé fique sobre outros elementos, se necessário */
+  }
+  
+  .footer-content {
+    display: flex;
+    align-items: center;
+    font-size: 14px; /* Ajuste conforme necessário */
+    color: white; /* Torna o texto do rodapé branco */
+  }
+  
+  .footer-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px; /* Espaço entre o logo e o texto */
+  }
+  
