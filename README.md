@@ -74,3 +74,7 @@ Aqui estão alguns dos comandos de voz que o JARVIS já suporta:
 --- 
 > Nota: Este projeto está em desenvolvimento contínuo. Novos comandos e funcionalidades serão adicionados futuramente. Fique atento às atualizações!
 
+--- 
+### Convite
+> Sinta-se avontade para contribuir com o projeto, lembre-se de fazer um fork, e abrir sua Pull Request em uma nova Branch. 
+💎🚀
